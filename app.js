@@ -112,6 +112,13 @@ export function createApp({ service, auth, cronSecret, readOnly = false, priceEd
 
 const readOnly = process.env.QUIROFANO_READ_ONLY === "true";
 const priceEditing = process.env.QUIROFANO_PRICE_EDITING_ENABLED === "true";
+console.info("[quirofano:config]", {
+  readOnly,
+  priceEditing,
+  supabaseUrlConfigured: Boolean(process.env.SUPABASE_URL),
+  supabaseAnonKeyConfigured: Boolean(process.env.SUPABASE_ANON_KEY),
+  supabaseServiceRoleConfigured: Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY),
+});
 const supabase = (key, token) => process.env.SUPABASE_URL && key
   ? createClient(process.env.SUPABASE_URL, key, {
     auth: { persistSession: false, autoRefreshToken: false },
