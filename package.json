@@ -1,0 +1,25 @@
+{
+  "name": "backend-quirofano",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node --watch scripts/server.js",
+    "start": "node scripts/server.js",
+    "test": "node --test test/*.test.js",
+    "test:db": "node --test test/sql.integration.js",
+    "test:connection": "node scripts/check-connection.js",
+    "cron:local": "node scripts/cron-local.js",
+    "check": "node --check app.js && node --check src/service.js && node --check src/siigo.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.89.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "pg": "^8.13.1"
+  }
+}
