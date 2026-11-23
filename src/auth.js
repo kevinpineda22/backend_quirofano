@@ -14,6 +14,8 @@ export function canEditPrices(profile, role) {
   return canAccess(profile, role);
 }
 
+
+
 export function authorize(client) {
   return async (req, _res, next) => {
     try {
